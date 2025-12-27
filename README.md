@@ -77,6 +77,8 @@ npm run dev
 Visit http://localhost:3000 to see the application.
 
 
+------*-
+
 # 📘 Technical Architecture & Design Decisions
 
 ## 1. Architectural Philosophy: Strict OOP
