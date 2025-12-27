@@ -1,0 +1,28 @@
+{
+  "name": "ApniSec - Advanced Cyber Security",
+  "short_name": "ApniSec",
+  "description": "Defend against cyber threats before they strike. Enterprise-grade security solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00f0ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["security", "business", "utilities"],
+  "lang": "en",
+  "screenshots": [],
+  "prefer_related_applications": false
+}

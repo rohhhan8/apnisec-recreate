@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon: #00F0FF;
+  --color-neon-dark: #003333;
+  
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-cabinet: 'Cabinet Grotesk', sans-serif;
+  
+  /* Defaults */
+  --font-sans: var(--font-satoshi); 
+  --font-display: var(--font-cabinet);
+}
+
+@layer base {
+  :root {
+    --background: #000000;
+    --foreground: #EEEEEE;
+  }
+
+  html {
+    /* scroll-behavior: smooth;  <-- Disabled for Lenis */
+  }
+
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: var(--font-satoshi);
+  }
+
+  /* Override Lenis transform on html that breaks fixed positioning */
+  html.lenis, html.lenis-smooth {
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cabinet);
+  }
+
+  ::selection {
+    background-color: #00b3cb;
+    color: #000000;
+  }
+}

@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  CLIENT
+}
+
+enum IssueType {
+  CLOUD
+  RETEAM
+  REDTEAM
+  VAPT
+}
+
+enum IssueStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  name         String?
+  passwordHash String
+  role         Role
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  issues       Issue[]
+  auditLogs    AuditLog[]
+}
+
+model Issue {
+  id          String      @id @default(uuid())
+  title       String
+  description String
+  type        IssueType
+  status      IssueStatus @default(OPEN)
+  userId      String
+  user        User        @relation(fields: [userId], references: [id])
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+
+  @@index([userId])
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  action    String
+  entityId  String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  details   Json?
+  timestamp DateTime @default(now())
+
+  @@index([userId])
+}
