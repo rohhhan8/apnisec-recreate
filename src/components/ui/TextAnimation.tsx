@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +23,7 @@ export default function TextAnimation({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
-  const getVariants = () => {
+  const getVariants = (): Variants => {
     const x = direction === "left" ? 40 : direction === "right" ? -40 : 0;
     const y = direction === "up" ? 40 : direction === "down" ? -40 : 0;
 
@@ -41,7 +41,7 @@ export default function TextAnimation({
         y: 0,
         transition: {
           duration: 0.8,
-          ease: "easeOut",
+          ease: [0.16, 1, 0.3, 1] as const,
         },
       },
     };
