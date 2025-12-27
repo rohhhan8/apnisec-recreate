@@ -50,8 +50,8 @@ The platform includes custom-built authentication, rate limiting, and audit logg
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/your-username/apnisec-portal.git
-cd apnisec-portal
+git clone https://github.com/rohhhan8/apnisec-recreate.git
+cd apnisec-recreate
 npm install
 ```
 
@@ -66,8 +66,6 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 
 ### 3. Database Setup
-Push the schema to your PostgreSQL instance:
-
 ```bash
 npx prisma db push
 ```
